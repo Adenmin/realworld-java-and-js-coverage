@@ -22,12 +22,13 @@ allprojects {
 
     drill {
         version = "0.15.0-js-coverage"
-        adminHost = "localhost"
+        adminHost = System.getProperty("adminHost") ?: "localhost"
         groupId = "realworld-app"
         adminPort = 8090
         additionalParams = [
-                "dispatcherUrl": "localhost:5003",
-                "agentUrl"     : "localhost:8080"
+                "dispatcherUrl": "$adminHost:5003",
+                "agentUrl"     : "$adminHost:8080",
+                "browserProxyAddress": "$adminHost:7777"
         ]
     }
 }

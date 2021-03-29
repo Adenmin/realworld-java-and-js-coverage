@@ -17,8 +17,10 @@ public class BaseTest {
 
     @BeforeAll
     public static void beforeAll() {
-        Configuration.baseUrl = "http://localhost:8080";
-        Configuration.holdBrowserOpen = true;
+        String appHost = System.getProperty("appHost","localhost");
+        String remoteHost=System.getProperty("remoteHost","localhost");
+        Configuration.baseUrl = String.format("http://%s:8080",appHost);
+        Configuration.remote = String.format("http://%s:4444/wd/hub",remoteHost);
         Configuration.browser = "chrome";
         open(Configuration.baseUrl);
     }

@@ -2,6 +2,11 @@ version: '3'
 
 services:
 
+  browser-proxy:
+    image: drill4j/browser-proxy:0.1.0
+    ports:
+      - 7777:7777
+
   admin-ui:
     image: drill4j/admin-ui:${FRONT_VERSION}
     restart: always
