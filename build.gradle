@@ -21,7 +21,7 @@ allprojects {
     }
 
     drill {
-        version = "0.15.0-js-coverage"
+        version = System.getProperty("agentVersion") ?: "0.15.0-js-coverage"
         adminHost = System.getProperty("adminHost") ?: "localhost"
         groupId = "realworld-app"
         adminPort = 8090
