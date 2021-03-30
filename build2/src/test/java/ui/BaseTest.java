@@ -21,6 +21,7 @@ public class BaseTest {
         String remoteHost=System.getProperty("remoteHost","localhost");
         Configuration.baseUrl = String.format("http://%s:8080",appHost);
         Configuration.remote = String.format("http://%s:4444/wd/hub",remoteHost);
+        Configuration.browserCapabilities.setCapability("enableVNC", true);
         Configuration.browser = "chrome";
         open(Configuration.baseUrl);
     }
